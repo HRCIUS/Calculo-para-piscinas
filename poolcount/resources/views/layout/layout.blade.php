@@ -21,6 +21,13 @@
             <li class="nav-item ">
               <a class="nav-link text-white" href="/cadastro">Cadastrar Piscina</a>
             </li>
+            <form action="/logout" method="POST">
+              @csrf
+            <li class="nav-item ">
+              <a class="nav-link text-white" href="/logout" onclick="event.preventDefault();
+              this.closest('form').submit();">Sair</a>
+            </li>
+            </form>
           </ul>
         </div>
     </nav>
