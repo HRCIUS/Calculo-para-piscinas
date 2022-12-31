@@ -19,6 +19,8 @@ Route::get('/', [PiscinaController::class, 'index']);
 
 Route::post('/logout', [PiscinaController::class, 'index']);
 
+Route::get("/cadastro", [PiscinaController::class, 'cadastro'])->middleware('auth');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

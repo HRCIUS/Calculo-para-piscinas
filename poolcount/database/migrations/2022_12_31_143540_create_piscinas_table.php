@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nome');
             $table->string("local");
-            $table->float('altura_em_cm');
+            $table->float('alturaMax_em_cm');
+            $table->float("alturamin_em_cm")->nullable();
             $table->float('largura_em_cm');
             $table->float("volume");
             $table->float("margem_em_cm");
