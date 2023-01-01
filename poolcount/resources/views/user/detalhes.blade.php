@@ -11,16 +11,10 @@
     td{
         font-size: 14px
     }
-    hr{
-        color: black;
-        border: 1px solid black
-    }
 </style>
-
 <div class="container">
     <div class="row p-5">
         <h2>{{ $piscina -> nome }} - Detalhes</h2>
-        <hr>
     </div>
     <div class="row py-5 px-1">
         <table class="table border table-responsive">
