@@ -46,8 +46,8 @@
     </table>
 </div>
 @else
-<div class="container">
-    <div class="row">
+<div class="container p-5">
+    <div class="row my-3">
         <h3 class="text-center">Você ainda não possui piscinas cadastradas</h3>
     </div>
     <div class="row">

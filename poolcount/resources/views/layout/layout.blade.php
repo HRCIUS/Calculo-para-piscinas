@@ -38,7 +38,7 @@
     @yield("content")
 
     <div class="container-fluid bg-dark d-flex justify-content-center py-5">
-        <footer>
+        <footer class="py-2">
           <div class="row navbar-expand" id="redes">
             <ul class="navbar-nav my-2 ">
               <li class="nav-item me-1"><a href="https://instagram.com/h_barretu" target="_blank"><img  class="img-fluid" src="https://img.shields.io/badge/-Instagram-%23E4405F?style=for-the-badge&logo=instagram&logoColor=white" target="_blank"></a></li>
