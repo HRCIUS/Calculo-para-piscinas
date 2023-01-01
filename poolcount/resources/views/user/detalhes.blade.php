@@ -9,17 +9,18 @@
         font-size: 15px;
     }
     td{
-        font-size: 12px
+        font-size: 14px
     }
     hr{
-        color: black
+        color: black;
+        border: 1px solid black
     }
 </style>
 
 <div class="container">
     <div class="row p-5">
         <h2>{{ $piscina -> nome }} - Detalhes</h2>
-        <hr style="color: black">
+        <hr>
     </div>
     <div class="row py-5 px-1">
         <table class="table border table-responsive">

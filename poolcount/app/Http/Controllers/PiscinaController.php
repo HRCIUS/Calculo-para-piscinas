@@ -61,7 +61,7 @@ class PiscinaController extends Controller
             $piscina->volume = $v/1000000;
         }
         $piscina->quant_total_cloro = (4 * $piscina->volume * 15)/1000;
-        $piscina->quant_total_clarificante = (5 * $piscina->volume * 2)/1000;
+        $piscina->quant_total_clarificante = (6 * $piscina->volume * 2)/1000;
         $piscina->controle_de_ph = (20 * $piscina->volume)/1000;
         $piscina->quant_total_sulfato = (30 * $piscina->volume * 3)/1000;
 
