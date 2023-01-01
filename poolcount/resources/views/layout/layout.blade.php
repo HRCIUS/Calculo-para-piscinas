@@ -22,12 +22,12 @@
           <li class="nav-item mx-3">
             <a class="nav-link text-white" href="/cadastro">Cadastrar Piscina</a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item">
             <a class="nav-link text-white" href="/piscinas">Piscinas cadastradas</a>
           </li>
           <form action="/logout" method="POST">
             @csrf
-          <li class="nav-item float-right ms-3">
+          <li class="nav-item float-right mx-3">
             <a class="nav-link text-danger" href="/logout" onclick="event.preventDefault();
             this.closest('form').submit();">Sair</a>
           </li>

@@ -17,7 +17,7 @@
         <h2>{{ $piscina -> nome }} - Detalhes</h2>
     </div>
     <div class="row py-5 px-1">
-        <table class="table border table-responsive">
+        <table class="table border table-responsive y-5">
             <thead>
                 <tr>
                     <th>
@@ -75,6 +75,11 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            
+        </div>
     </div>
 </div>
 

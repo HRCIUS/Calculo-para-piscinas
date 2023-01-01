@@ -4,7 +4,7 @@
 @section('content')
 @if(count($piscinas) > 0)
 <div class="container"> 
-    <table class="table">
+    <table class="table table-bordered my-5">
       <thead>
         <tr>
           <th scope="col">Nome</th>
@@ -55,4 +55,7 @@
     </div>
 </div>
 @endif
+<div class="row my-5" style="height: 100px">
+
+</div>
 @endsection
