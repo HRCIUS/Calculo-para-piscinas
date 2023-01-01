@@ -10,26 +10,30 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-        <a class="navbar-brand mx-2" href="#"><img src="/img/logotipo.png" style="height: 50px" alt=""></a>
+        <a class="navbar-brand me-4" href="#"><img src="/img/logotipo.png" style="height: 50px" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item active">
-              <a class="nav-link text-white" href="/">Home</a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link text-white" href="/cadastro">Cadastrar Piscina</a>
-            </li>
-            <form action="/logout" method="POST">
-              @csrf
-            <li class="nav-item ">
-              <a class="nav-link text-white" href="/logout" onclick="event.preventDefault();
-              this.closest('form').submit();">Sair</a>
-            </li>
-            </form>
-          </ul>
-        </div>
+      <div class="d-flex flex-row-reverse bd-highlight">
+        <ul class="navbar-nav p-2 bd-highlight">
+          <li class="nav-item active">
+            <a class="nav-link text-white" href="/dashboard">Home</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link text-white" href="/cadastro">Cadastrar Piscina</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link text-white" href="/piscinas">Piscinas cadastradas</a>
+          </li>
+          <form action="/logout" method="POST">
+            @csrf
+          <li class="nav-item float-right ms-3">
+            <a class="nav-link text-danger" href="/logout" onclick="event.preventDefault();
+            this.closest('form').submit();">Sair</a>
+          </li>
+          </form>
+        </ul>
+      </div>
     </nav>
     @yield("content")
 

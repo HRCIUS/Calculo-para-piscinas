@@ -7,7 +7,7 @@
     <div class="col">
       <div class="card h-100">
         <img src="/img/circular.jpg" class="card-img-top"
-          alt="Hollywood Sign on The Hill" />
+          alt="circular" />
         <div class="card-body">
           <h5 class="card-title">Piscinas Circulares</h5>
         </div>
@@ -16,18 +16,9 @@
     <div class="col">
       <div class="card h-100">
         <img src="/img/quadrangular.jpg" class="card-img-top"
-          alt="Los Angeles Skyscrapers" />
+          alt="quadrangular" />
         <div class="card-body">
           <h5 class="card-title">Piscinas Quadrangulares</h5>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card h-100">
-        <img src="/img/trapezoidal.jpg" class="card-img-top"
-          alt="" />
-        <div class="card-body">
-          <h5 class="card-title">Piscinas Trapezoidais</h5>
         </div>
       </div>
     </div>

@@ -21,6 +21,19 @@ Route::post('/logout', [PiscinaController::class, 'index']);
 
 Route::get("/cadastro", [PiscinaController::class, 'cadastro'])->middleware('auth');
 
+Route::get('/dashboard', [PiscinaController::class, 'dashboard'])->middleware("auth");
+
+Route::get("/piscinas", [PiscinaController::class, 'piscinas'])->middleware("auth");
+
+Route::get("/piscinas/detalhes/{id}", [PiscinaController::class, "detalhes"])->middleware("auth");
+
+Route::post('/cadastrado', [PiscinaController::class, 'cadastrado'])->middleware('auth');
+
+Route::delete('/remover/{id}', [PiscinaController::class, 'destroy'])->middleware('auth');
+
+Route::get('/editar/{id}', [PiscinaController::class, 'edit'])->middleware('auth');
+
+Route::put("/piscina/update/{id}", [PiscinaController::class, 'update'])->middleware('auth');
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
