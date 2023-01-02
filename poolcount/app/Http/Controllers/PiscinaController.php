@@ -91,7 +91,7 @@ class PiscinaController extends Controller
     }
     public function update(Request $request)
     {
-        $piscina = Piscina::findOrFail($request -> id) -> update($request->all());
+        $piscina = Piscina::find($request -> id) -> update($request->all());
         return redirect('/piscinas')->with('msg', 'Edição realizada com sucesso');
     }
 }
