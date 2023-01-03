@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02-Jan-2023 às 01:07
+-- Tempo de geração: 03-Jan-2023 às 17:35
 -- Versão do servidor: 10.4.25-MariaDB
 -- versão do PHP: 8.1.10
 
@@ -108,13 +108,8 @@ CREATE TABLE `piscinas` (
   `alturamin_em_cm` double(8,2) DEFAULT NULL,
   `largura_em_cm` double(8,2) NOT NULL,
   `comprimento` double(8,2) DEFAULT NULL,
-  `volume` double(8,2) NOT NULL,
   `margem_em_cm` double(8,2) NOT NULL,
   `formato` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quant_total_cloro` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quant_total_clarificante` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `controle_de_ph` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quant_total_sulfato` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL
@@ -124,9 +119,8 @@ CREATE TABLE `piscinas` (
 -- Extraindo dados da tabela `piscinas`
 --
 
-INSERT INTO `piscinas` (`id`, `nome`, `local`, `alturaMax_em_cm`, `alturamin_em_cm`, `largura_em_cm`, `comprimento`, `volume`, `margem_em_cm`, `formato`, `quant_total_cloro`, `quant_total_clarificante`, `controle_de_ph`, `quant_total_sulfato`, `created_at`, `updated_at`, `user_id`) VALUES
-(12, 'piscina IF', 'ifrn', 171.50, 155.00, 1245.50, 2494.00, 413.91, 30.00, 'quadrangular', '24.834684615', '4.966936923', '8.278228205', '37.2520269225', '2023-01-02 00:43:24', '2023-01-02 00:43:24', 1),
-(13, 'Piscina Sengel', 'IF Sengel', 180.00, 110.00, 1200.00, 2500.00, 405.00, 10.00, 'quadrangular', '24.3', '4.86', '8.1', '36.45', '2023-01-02 03:05:40', '2023-01-02 03:05:40', 1);
+INSERT INTO `piscinas` (`id`, `nome`, `local`, `alturaMax_em_cm`, `alturamin_em_cm`, `largura_em_cm`, `comprimento`, `margem_em_cm`, `formato`, `created_at`, `updated_at`, `user_id`) VALUES
+(1, 'piscina IF', 'ifrn', 171.50, 155.00, 1245.50, 2494.00, 30.00, 'quadrangular', '2023-01-03 19:07:23', '2023-01-03 19:33:13', 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +142,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('zUqDKJc0ib65XgzIBRvJIiVdjU5nRuBWufQN1XHc', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiVm9BS3kyVjJ5bmJCNVY2d1ZMNzVvYzNwSFlCYjM5YmlIbE1nTnFYUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9waXNjaW5hcy9kZXRhbGhlcy8xMyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkYjZsVENmOUFyb0NSWWhhVnd5cW1QZUwvdTRtOXF6Z09XYlV6b3BLSDQualdSbk5wRmlnNEsiO30=', 1672617960);
+('JflQL8B0eCnQsE9UFSZsf5ikZrliqaBZdZ1F7Y3O', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiRklDaGpVdGw4STFGcDNJUWRFM1lQYXlGRThqejhXaTdHNVlvYmtCcSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9waXNjaW5hcy9kZXRhbGhlcy8xIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRicEYwWG1GV0pMalo5VkpnWW00eDN1d1FuMXc3WVF6VllQby9wb3ZsYkRtZHlRbEY5TFMyNiI7fQ==', 1672763596);
 
 -- --------------------------------------------------------
 
@@ -177,7 +171,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Horácio', 'horaciovlogs@gmail.com', NULL, '$2y$10$b6lTCf9AroCRYhaVwyqmPeL/u4m9qzgOWbUzopKH4.jWRnNpFig4K', NULL, NULL, NULL, 'qYEHjNLbqyUF7YZClt29NjKF0YhFZanV1X01afdsteZh372HnsBp259mGCs6', NULL, NULL, '2023-01-01 17:19:40', '2023-01-01 17:19:40');
+(1, 'Horácio', 'horaciovlogs@gmail.com', NULL, '$2y$10$bpF0XmFWJLjZ9VJgYm4x3uwQn1w7YQzVYPo/povlbDmdyQlF9LS26', NULL, NULL, NULL, NULL, NULL, NULL, '2023-01-03 19:06:40', '2023-01-03 19:06:40');
 
 --
 -- Índices para tabelas despejadas
@@ -258,7 +252,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT de tabela `piscinas`
 --
 ALTER TABLE `piscinas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `users`
