@@ -65,13 +65,14 @@
                     <td scope='col'>{{ $piscina -> alturamin_em_cm}} cm</td>
                     <td scope='col'>{{ $piscina -> largura_em_cm }} cm</td>
                     <td scope='col'>{{ $piscina -> comprimento }} cm</td>
-                    <td scope='col'>{{ round($piscina -> volume, 3) }} m³</td>
+                    <td scope='col'>{{ round($calculos["v"], 3) }} m³</td>
                     <td scope='col'>{{ $piscina -> margem_em_cm }} cm</td>
                     <td scope='col'>{{ $piscina -> formato }}</td>
-                    <td scope='col'>{{ round($piscina -> quant_total_cloro, 3) }} Kg/mês</td>
-                    <td scope='col'>{{ round($piscina -> quant_total_clarificante, 3)}} L/mês</td>
-                    <td scope='col'>{{ round($piscina -> controle_de_ph, 3) }} Kg/mês</td>
-                    <td scope='col'>{{ round($piscina -> quant_total_sulfato, 3) }} Kg/mês</td>
+                    <td scope='col'>{{ round($calculos["cloro"], 3) }} Kg/mês</td>
+                    <td scope='col'>{{ round($calculos['clarificante'], 3)}} L/mês</td>
+                    <td scope='col'>{{ round($calculos['ph'], 3) }} Kg/mês</td>
+                    <td scope='col'>{{ round($calculos['sulfato'], 3) }} Kg/mês</td>
+                    
                 </tr>
             </tbody>
         </table>

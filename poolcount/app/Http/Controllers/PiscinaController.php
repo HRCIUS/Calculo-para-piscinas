@@ -40,30 +40,6 @@ class PiscinaController extends Controller
         $piscina -> formato = $request -> formato;
         $piscina -> margem_em_cm = $request -> nivel;
         $piscina -> user_id = $user->id;
-        $piscina->volume = 0;
-        if($request -> formato == "circular" && $request -> alturaMenor != ""){
-            $r = $request->largura/2;
-            $v = pi() * ($r**2) * (($request->alturaMaior - $request->nivel) + ($request->alturaMenor- $request->margem_em_cm));
-            $piscina -> volume = ($v/2)/1000000;
-
-        }else if($request -> formato == "circular" && $request -> alturaMenor == ""){
-            $r = $request->largura/2;
-            $v = pi() * $r**2 * ($request->alturaMaior - $request->nivel);
-            $piscina -> volume = $v/1000000;
-        }else if($request -> formato == "quadrangular" && $request -> alturaMaior != "" && $request -> comprimento != ""){
-            $v = (($request -> alturaMaior - $request->nivel) + ($request->alturaMenor - $request->nivel)) * $request->comprimento;
-            $v = $v/2;
-            $v = $v * $request->largura;
-            $v = $v/1000000;
-            $piscina->volume = $v;
-        }else if($request -> formato == "quadrangular" && $request -> alturaMaior == "" && $request -> comprimento != ""){
-            $v = $request->largura * $request->comprimento * ($request->alturaMaior - $request->nivel);
-            $piscina->volume = $v/1000000;
-        }
-        $piscina->quant_total_cloro = (4 * $piscina->volume * 15)/1000;
-        $piscina->quant_total_clarificante = (6 * $piscina->volume * 2)/1000;
-        $piscina->controle_de_ph = (20 * $piscina->volume)/1000;
-        $piscina->quant_total_sulfato = (30 * $piscina->volume * 3)/1000;
 
         $piscina->save();
         return redirect("/dashboard")->with("msg", "Cadastro realizado com sucesso");
@@ -76,14 +52,41 @@ class PiscinaController extends Controller
     }
     public function detalhes($id)
     {
-        $piscina = Piscina::findOrFail($id);
-        return view("user.detalhes", ["piscina" => $piscina]);
+        $piscina = Piscina::find($id);
+        $v = 0;
+        if($piscina -> formato == "circular" && $piscina -> alturamin_em_cm != ""){
+            $r = $piscina->largura_em_cm/2;
+            $v = pi() * ($r**2) * (($piscina->alturaMax_em_cm - $piscina->margem_em_cm) + ($piscina->alturamin_em_cm- $piscina->margem_em_cm));
+            $v = ($v/2)/1000000;
+
+        }else if($piscina -> formato == "circular" && $piscina -> alturamin_em_cm == ""){
+            $r = $piscina->largura_em_cm/2;
+            $v = pi() * $r**2 * ($piscina->alturaMax_em_cm - $piscina->margem_em_cm);
+            $v = $v/1000000;
+        }else if($piscina -> formato == "quadrangular" && $piscina -> alturamin_em_cm != "" && $piscina -> comprimento != ""){
+            $v = (($piscina -> alturaMax_em_cm - $piscina->margem_em_cm) + ($piscina->alturamin_em_cm - $piscina->margem_em_cm)) * $piscina->comprimento;
+            $v = $v/2;
+            $v = $v * $piscina->largura_em_cm;
+            $v = $v/1000000;
+        }else if($piscina -> formato == "quadrangular" && $piscina -> alturamin_em_cm == "" && $piscina -> comprimento != ""){
+            $v = $piscina->largura_em_cm * $piscina->comprimento * ($piscina->alturaMax_em_cm - $piscina->margem_em_cm);
+
+        }
+
+        $cloro = (4 * $v * 15)/1000;
+        $clarificante = (6 * $v * 2)/1000;
+        $controle_de_ph = (20 * $v)/1000;
+        $sulfato = (30 * $v * 3)/1000;
+        $calculos = ["v"=>$v, "cloro"=>$cloro, "clarificante"=>$clarificante, "ph"=>$controle_de_ph, "sulfato"=>$sulfato];
+        return view("user.detalhes", ["piscina" => $piscina, "calculos" => $calculos]);
     }
+
     public function destroy($id)
     {
         Piscina::findOrFail($id)->delete();
         return redirect('/piscinas')->with('msg', 'Exclusão realizada com sucesso');
     }
+
     public function edit($id)
     {
         $piscina = Piscina::findOrFail($id);

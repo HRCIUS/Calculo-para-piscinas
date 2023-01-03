@@ -21,13 +21,8 @@ return new class extends Migration
             $table->float("alturamin_em_cm")->nullable();
             $table->float('largura_em_cm');
             $table->float("comprimento")->nullable();
-            $table->float("volume");
             $table->float("margem_em_cm");
             $table->string("formato");
-            $table->string("quant_total_cloro");
-            $table->string("quant_total_clarificante");
-            $table->string("controle_de_ph");
-            $table->string("quant_total_sulfato");
             $table->timestamps();
         });
     }
