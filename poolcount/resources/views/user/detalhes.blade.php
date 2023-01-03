@@ -13,10 +13,10 @@
     }
 </style>
 <div class="container">
-    <div class="row p-5">
+    <div class="row mt-4">
         <h2>{{ $piscina -> nome }} - Detalhes</h2>
     </div>
-    <div class="row py-5 px-1">
+    <div class="row py-4 px-1">
         <table class="table border table-responsive y-5">
             <thead>
                 <tr>
@@ -72,14 +72,17 @@
                     <td scope='col'>{{ round($calculos['clarificante'], 3)}} L/mês</td>
                     <td scope='col'>{{ round($calculos['ph'], 3) }} Kg/mês</td>
                     <td scope='col'>{{ round($calculos['sulfato'], 3) }} Kg/mês</td>
-                    
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="row">
         <div class="col-sm-4">
-            
+            <p>Quantidade de cloro diário: {{ round(($calculos['cloro'] * 12) / 365, 3) }} g</p>
+            <p>Quantidade de clarificante diário: {{ round(($calculos['clarificante'] * 12) / 365, 3) }} ml</p>     
+            <p>Produto para controle de Ph diário: {{ round(($calculos['ph'] * 12) / 365, 3) }} g</p>     
+            <p>Quantidade de sulfato de alumínio diário: {{ round(($calculos['sulfato'] * 12) / 365, 3) }} g</p>     
+
         </div>
     </div>
 </div>
